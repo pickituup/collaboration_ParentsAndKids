@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseCommonPage
+    x:Class="ParentsAndKids.Views.SignUpView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:local="clr-namespace:ParentsAndKids.Views"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ParentsAndKids.Controls"
+    xmlns:extension="clr-namespace:ParentsAndKids.Extensions"
+    xmlns:actionBars="clr-namespace:ParentsAndKids.Views.CompoundedViews.ActionBars"
+    xmlns:viewModelBase="clr-namespace:ParentsAndKids.ViewModels.Base"
+    Title="Create an accaunt"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True"
+    BackgroundColor="{StaticResource WhiteColor}">
+
+    <local:BaseCommonPage.Resources>
+        <ResourceDictionary />
+    </local:BaseCommonPage.Resources>
+
+    <!--Set the action bar for current page-->
+    <local:BaseCommonPage.ActionBar>
+        <actionBars:CommonActionBar/>
+    </local:BaseCommonPage.ActionBar>
+
+    <!--Set main content for current page-->
+    <local:BaseCommonPage.MainContent>
+        <Grid>
+            <!--<BoxView BackgroundColor="{StaticResource WhiteColor}" />-->
+            <ScrollView>
+                <StackLayout Padding="20" Spacing="20">
+                    <controls:ExtendedContentView
+                    BackgroundColor="{StaticResource MainColor}"
+                    CornerRadius="50"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="100" />
+                    <!--  EMAIL  -->
+                    <StackLayout>
+                        <Label
+                        FontSize="{StaticResource BaseFontSize}"
+                        Text="E-mail"
+                        TextColor="{StaticResource GreyColor}" />
+                        <controls:ExtendedContentView
+                        Padding="15,15"
+                        BackgroundColor="{StaticResource WhiteColor}"
+                        BorderColor="{StaticResource LightGreyColor}"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                            <controls:EntryEx
+                            FontSize="{StaticResource LargerSize}"
+                            Placeholder="Enter your email"
+                            PlaceholderColor="{StaticResource LightGreyColor}"
+                            Text="Joan_miller"
+                            TextColor="{StaticResource BlackColor}" />
+                        </controls:ExtendedContentView>
+                    </StackLayout>
+                    <!--  USERNAME  -->
+                    <StackLayout>
+                        <Label
+                        FontSize="{StaticResource BaseFontSize}"
+                        Text="Username"
+                        TextColor="{StaticResource GreyColor}" />
+                        <controls:ExtendedContentView
+                        Padding="15,15"
+                        BackgroundColor="{StaticResource WhiteColor}"
+                        BorderColor="{StaticResource LightGreyColor}"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                            <controls:EntryEx
+                            FontSize="{StaticResource LargerSize}"
+                            Placeholder="Enter your username"
+                            PlaceholderColor="{StaticResource LightGreyColor}"
+                            Text="{Binding}"
+                            TextColor="{StaticResource BlackColor}" />
+                        </controls:ExtendedContentView>
+                    </StackLayout>
+                    <!--  PASSWORD  -->
+                    <StackLayout>
+                        <Label
+                        FontSize="{StaticResource BaseFontSize}"
+                        Text="Password"
+                        TextColor="{StaticResource GreyColor}" />
+                        <controls:ExtendedContentView
+                        Padding="15,15"
+                        BackgroundColor="{StaticResource WhiteColor}"
+                        BorderColor="{StaticResource LightGreyColor}"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                            <controls:EntryEx
+                            FontSize="{StaticResource LargerSize}"
+                            Placeholder="Enter your password"
+                            PlaceholderColor="{StaticResource LightGreyColor}"
+                            Text="{Binding}"
+                            TextColor="{StaticResource BlackColor}" />
+                        </controls:ExtendedContentView>
+                    </StackLayout>
+                    <!--  INTERACTIVE TEXT  -->
+                    <StackLayout Spacing="0">
+                        <StackLayout Orientation="Horizontal" Spacing="2">
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="By signing up, you agree to our"
+                            TextColor="{StaticResource BlackColor}" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="Terms"
+                            TextColor="{StaticResource MainColor}" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="and that you"
+                            TextColor="{StaticResource BlackColor}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="2">
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="have read our"
+                            TextColor="{StaticResource BlackColor}" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="Privacy Policy"
+                            TextColor="{StaticResource MainColor}" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="and"
+                            TextColor="{StaticResource BlackColor}" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource MidMediumSize}"
+                            LineBreakMode="NoWrap"
+                            Text="Content Policy"
+                            TextColor="{StaticResource MainColor}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <controls:ExtendedContentView
+                    Padding="20,0"
+                    BackgroundColor="{StaticResource DarkBlueColor}"
+                    CornerRadius="10"
+                    HeightRequest="60">
+                        <controls:ExtendedContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignUpCommand}" />
+                        </controls:ExtendedContentView.GestureRecognizers>
+                        <StackLayout
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        Spacing="10">
+                            <Image
+                            HeightRequest="30"
+                            HorizontalOptions="Center"
+                            Source="{extension:ImageResource ParentsAndKids.Images.facebook_icon.png}"
+                            WidthRequest="30" />
+                            <Label
+                            FontAttributes="Bold"
+                            FontSize="{StaticResource LargerSize}"
+                            HorizontalOptions="Center"
+                            Text="SIGNUP WITH FACEBOOK"
+                            TextColor="{StaticResource WhiteColor}"
+                            VerticalOptions="Center" />
+                        </StackLayout>
+                    </controls:ExtendedContentView>
+                    <controls:ExtendedContentView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource MainColor}"
+                    CornerRadius="10"
+                    HeightRequest="60">
+                        <controls:ExtendedContentView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CreateAccountCommand}" />
+                        </controls:ExtendedContentView.GestureRecognizers>
+                        <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HorizontalOptions="Center"
+                        Text="CREATE ACCOUNT"
+                        TextColor="{StaticResource WhiteColor}"
+                        VerticalOptions="Center" />
+                    </controls:ExtendedContentView>
+                </StackLayout>
+            </ScrollView>
+            <!--  INDICATOR  -->
+            <ActivityIndicator
+            HorizontalOptions="Center"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            Color="{StaticResource MainColor}">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform
+                    x:TypeArguments="x:Double"
+                    Android="100"
+                    WinPhone="400"
+                    iOS="100" />
+                </ActivityIndicator.WidthRequest>
+            </ActivityIndicator>
+        </Grid>
+    </local:BaseCommonPage.MainContent>
+</local:BaseCommonPage>

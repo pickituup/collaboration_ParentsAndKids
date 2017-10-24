@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ParentsAndKids.Views.InboxView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModelBase="clr-namespace:ParentsAndKids.ViewModels.Base"
+    Title="Inbox"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True">
+
+    <ContentPage.Resources>
+        <ResourceDictionary />
+    </ContentPage.Resources>
+
+    <Grid>
+        <Label Text="{Binding Inbox}" VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

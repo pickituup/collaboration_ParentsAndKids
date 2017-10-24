@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseCommonPage
+    x:Class="ParentsAndKids.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ParentsAndKids.Views"
+    xmlns:controls="clr-namespace:ParentsAndKids.Controls"
+    xmlns:extension="clr-namespace:ParentsAndKids.Extensions"
+    xmlns:actionBars="clr-namespace:ParentsAndKids.Views.CompoundedViews.ActionBars"
+    xmlns:viewModelBase="clr-namespace:ParentsAndKids.ViewModels.Base"
+    Title="Login"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True"
+    BackgroundColor="{StaticResource WhiteColor}">
+
+    <local:BaseCommonPage.Resources>
+        <ResourceDictionary />
+    </local:BaseCommonPage.Resources>
+
+    <!--Set the action bar for current page-->
+    <local:BaseCommonPage.ActionBar>
+        <actionBars:CommonActionBar/>
+    </local:BaseCommonPage.ActionBar>
+
+    <!--Set main content for current page-->
+    <local:BaseCommonPage.MainContent>
+        <Grid>
+            <StackLayout
+                Padding="20">
+                <controls:ExtendedContentView
+                    BackgroundColor="{StaticResource MainColor}"
+                    CornerRadius="50"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100">
+                    <Image
+                        HeightRequest="70"
+                        HorizontalOptions="Center"
+                        Source="{extension:ImageResource ParentsAndKids.Images.main_logo.png}"
+                        VerticalOptions="Center"
+                        WidthRequest="70" />
+                </controls:ExtendedContentView>
+
+                <Grid 
+                    VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition 
+                            Height="*" />
+                        <RowDefinition 
+                            Height="*" />
+                        <RowDefinition 
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <!--EMAIL-->
+                    <StackLayout 
+                        Grid.Row="0">
+                        <Label
+                            FontSize="{StaticResource BaseFontSize}"
+                            Text="E-mail / UserName"
+                            TextColor="{StaticResource GreyColor}" />
+                        <controls:ExtendedContentView
+                            Padding="15,15"
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            BorderColor="{StaticResource LightGreyColor}"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <controls:EntryEx
+                                FontSize="{StaticResource LargerSize}"
+                                Placeholder="Enter your email or username"
+                                PlaceholderColor="{StaticResource LightGreyColor}"
+                                Text="Joan_miller"
+                                TextColor="{StaticResource BlackColor}" />
+                        </controls:ExtendedContentView>
+                    </StackLayout>
+                    
+                    <!--PASSWORD-->
+                    <StackLayout
+                        Grid.Row="1">
+                        <Label
+                            FontSize="{StaticResource BaseFontSize}"
+                            Text="Password"
+                            TextColor="{StaticResource GreyColor}" />
+                        <controls:ExtendedContentView
+                            Padding="15,15"
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            BorderColor="{StaticResource LightGreyColor}"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <StackLayout 
+                                Orientation="Horizontal">
+                                <controls:EntryEx
+                                    FontSize="{StaticResource LargerSize}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Placeholder="Enter your password"
+                                    PlaceholderColor="{StaticResource LightGreyColor}"
+                                    Text=""
+                                    TextColor="{StaticResource BlackColor}" />
+                                <Image 
+                                    Source="{extension:ImageResource ParentsAndKids.Images.eye.png}" />
+                            </StackLayout>
+                        </controls:ExtendedContentView>
+                    </StackLayout>
+                    <Label
+                        Grid.Row="2"
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Text="FORGOT PASSWORD"
+                        TextColor="{StaticResource MainColor}"
+                        VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding ForgotPasswordCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <controls:ExtendedContentView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource MainColor}"
+                    CornerRadius="10"
+                    HeightRequest="60"
+                    VerticalOptions="EndAndExpand">
+                    <controls:ExtendedContentView.GestureRecognizers>
+                        <TapGestureRecognizer 
+                            Command="{Binding LoginCommand}" />
+                    </controls:ExtendedContentView.GestureRecognizers>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HorizontalOptions="Center"
+                        Text="LOGIN"
+                        TextColor="{StaticResource WhiteColor}"
+                        VerticalOptions="Center" />
+                </controls:ExtendedContentView>
+            </StackLayout>
+            
+            <!--INDICATOR-->
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                Color="{StaticResource MainColor}">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform
+                        x:TypeArguments="x:Double"
+                        Android="100"
+                        WinPhone="400"
+                        iOS="100" />
+                </ActivityIndicator.WidthRequest>
+            </ActivityIndicator>
+        </Grid>
+    </local:BaseCommonPage.MainContent>
+</local:BaseCommonPage>

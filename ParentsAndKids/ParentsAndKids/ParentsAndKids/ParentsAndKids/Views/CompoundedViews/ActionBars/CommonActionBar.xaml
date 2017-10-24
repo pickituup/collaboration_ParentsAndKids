@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:ActionBarBase
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ParentsAndKids.Views.CompoundedViews.ActionBars"
+    xmlns:extensions="clr-namespace:ParentsAndKids.Extensions"
+    x:Class="ParentsAndKids.Views.CompoundedViews.ActionBars.CommonActionBar">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="Auto"/>
+            <ColumnDefinition
+                Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Page header-->
+        <Label
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalOptions="Center"
+            FontSize="{StaticResource LargeSize}"
+            TextColor="{StaticResource BlackColor}"
+            Text="{Binding Path=ActionBarHeader}"
+            HorizontalTextAlignment="Center"/>
+        
+        <!--Back arrow-->
+        <ContentView
+            Grid.Column="0"
+            WidthRequest="40"
+            HeightRequest="50"
+            VerticalOptions="Center">
+            <ContentView.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding Path=BackCommand}"/>
+            </ContentView.GestureRecognizers>
+            <Image
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="30"
+                HeightRequest="30"
+                Aspect="AspectFill"
+                Source="{extensions:ImageResourceExtension Source=ParentsAndKids.Images.ic_arrow_chevron_left.png}"/>
+        </ContentView>
+    </Grid>
+</local:ActionBarBase>

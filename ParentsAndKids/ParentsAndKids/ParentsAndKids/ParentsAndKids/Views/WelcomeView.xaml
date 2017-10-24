@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ParentsAndKids.Views.WelcomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ParentsAndKids.Controls"
+    xmlns:extension="clr-namespace:ParentsAndKids.Extensions"
+    xmlns:viewModelBase="clr-namespace:ParentsAndKids.ViewModels.Base"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Resources>
+        <ResourceDictionary />
+    </ContentPage.Resources>
+
+    <Grid>
+        <Image Aspect="AspectFill" Source="{extension:ImageResource ParentsAndKids.Images.welcome_background.png}" />
+        <BoxView BackgroundColor="{StaticResource BlackColor}" Opacity="0.2" />
+
+        <Grid Padding="20,0" VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid
+                Grid.Row="0"
+                Padding="5"
+                HorizontalOptions="Center"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    FontFamily="SF UI Display Bold"
+                    FontSize="48"
+                    Text="Parent to"
+                    TextColor="{StaticResource WhiteColor}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Row="1"
+                    Margin="-1,-20,0,0"
+                    FontFamily="SF UI Display Bold"
+                    FontSize="70"
+                    Text="Parent"
+                    TextColor="{StaticResource WhiteColor}" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--  LOGIN  -->
+                <controls:ExtendedContentView
+                    BackgroundColor="{StaticResource MainColor}"
+                    CornerRadius="8"
+                    HeightRequest="50">
+                    <controls:ExtendedContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToLoginViewCommand}" />
+                    </controls:ExtendedContentView.GestureRecognizers>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HorizontalOptions="Center"
+                        Text="LOGIN"
+                        TextColor="{StaticResource WhiteColor}"
+                        VerticalOptions="Center" />
+                </controls:ExtendedContentView>
+                <!--  SIGNUP  -->
+                <controls:ExtendedContentView
+                    Grid.Column="1"
+                    BackgroundColor="{StaticResource BlueColor}"
+                    CornerRadius="8"
+                    HeightRequest="50">
+                    <controls:ExtendedContentView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToSignUpViewCommand}" />
+                    </controls:ExtendedContentView.GestureRecognizers>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HorizontalOptions="Center"
+                        Text="SIGN UP"
+                        TextColor="{StaticResource WhiteColor}"
+                        VerticalOptions="Center" />
+                </controls:ExtendedContentView>
+            </Grid>
+            <!--  FACEBOOK LOGIN  -->
+            <controls:ExtendedContentView
+                Grid.Row="2"
+                Margin="0,10,0,0"
+                Padding="20,0"
+                BackgroundColor="{StaticResource DarkBlueColor}"
+                CornerRadius="8"
+                HeightRequest="50">
+                <controls:ExtendedContentView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding FaceBookLoginCommand}" />
+                </controls:ExtendedContentView.GestureRecognizers>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Image
+                        HeightRequest="30"
+                        HorizontalOptions="Center"
+                        Source="{extension:ImageResource ParentsAndKids.Images.facebook--x28-alt-x29-@3x.png}"
+                        WidthRequest="25" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="{StaticResource LargerSize}"
+                        HorizontalOptions="Center"
+                        Text="LOGIN VIA FACEBOOK"
+                        TextColor="{StaticResource WhiteColor}"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </controls:ExtendedContentView>
+            <Label
+                Grid.Row="3"
+                FontFamily="SF UI Display Bold"
+                FontSize="{StaticResource LargeSize}"
+                HorizontalTextAlignment="Center"
+                Text="SKIP FOR NOW"
+                TextColor="{StaticResource WhiteColor}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToMainViewCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </Grid>
+</ContentPage>

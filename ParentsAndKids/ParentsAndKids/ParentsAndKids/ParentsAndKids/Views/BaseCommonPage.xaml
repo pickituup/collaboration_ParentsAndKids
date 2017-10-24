@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ParentsAndKids.Views.BaseCommonPage"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        x:Name="_rootGrid_Grid"
+        RowSpacing="0"
+        ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto"/>
+            <RowDefinition
+                Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Actionbar spot-->
+        <ContentView
+            x:Name="_actionBarSpot_ContentView"
+            Grid.Row="0"/>
+
+        <!--Main content spot-->
+        <ContentView
+            x:Name="_mainContentSpot_ContentView"
+            Grid.Row="1"/>
+    </Grid>
+</ContentPage>

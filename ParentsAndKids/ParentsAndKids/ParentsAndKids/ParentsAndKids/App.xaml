@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="ParentsAndKids.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:ParentsAndKids.Converters"
+    xmlns:extensions="clr-namespace:ParentsAndKids.Extensions">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--  COLORS  -->
+            <Color x:Key="MainColor">#2EC8BE</Color>
+            <Color x:Key="BlueColor">#137DF1</Color>
+            <Color x:Key="DarkBlueColor">#3B5998</Color>
+            <Color x:Key="WhiteColor">#ffffff</Color>
+            <Color x:Key="BlackColor">#080808</Color>
+            <Color x:Key="GreyColor">#9A9A9A</Color>
+            <Color x:Key="LightGreyColor">#CCCCCC</Color>
+
+            <!--  FONTS  -->
+            <OnPlatform
+                x:Key="MontserratRegular"
+                x:TypeArguments="x:String"
+                Android="Montserrat-Regular.ttf#Montserrat"
+                iOS="Montserrat-Regular" />
+
+            <OnPlatform
+                x:Key="MontserratBold"
+                x:TypeArguments="x:String"
+                Android="Montserrat-Bold.ttf#Montserrat"
+                iOS="Montserrat-Bold" />
+
+            <OnPlatform
+                x:Key="SourceSansProRegular"
+                x:TypeArguments="x:String"
+                Android="SourceSansPro-Regular.ttf#Source Sans Pro"
+                iOS="SourceSansPro-Regular" />
+
+            <!--  SIZES  -->
+            <OnPlatform
+                x:Key="BaseButtonFontSize"
+                x:TypeArguments="x:Double"
+                Android="16"
+                iOS="18" />
+
+            <OnPlatform
+                x:Key="BaseFontSize"
+                x:TypeArguments="x:Double"
+                Android="15"
+                iOS="16" />
+
+            <OnPlatform
+                x:Key="LittleSize"
+                x:TypeArguments="x:Double"
+                Android="12"
+                iOS="11" />
+
+            <OnPlatform
+                x:Key="MidMediumSize"
+                x:TypeArguments="x:Double"
+                Android="14"
+                iOS="12" />
+
+            <OnPlatform
+                x:Key="MediumSize"
+                x:TypeArguments="x:Double"
+                Android="16"
+                iOS="14" />
+
+            <OnPlatform
+                x:Key="LargeSize"
+                x:TypeArguments="x:Double"
+                Android="18"
+                iOS="16" />
+
+            <OnPlatform
+                x:Key="LargerSize"
+                x:TypeArguments="x:Double"
+                Android="20"
+                iOS="18" />
+
+            <OnPlatform
+                x:Key="BigSize"
+                x:TypeArguments="x:Double"
+                Android="24"
+                iOS="20" />
+
+            <OnPlatform
+                x:Key="ExtraBigSize"
+                x:TypeArguments="x:Double"
+                Android="32"
+                iOS="24" />
+
+            <OnPlatform
+                x:Key="HugeSize"
+                x:TypeArguments="x:Double"
+                Android="48"
+                iOS="32" />
+
+            <!--  CONVERTERS  -->
+            <converters:ImageConverter x:Key="ImageConverter" />
+
+            <!--  EXPLICIT STYLES  -->
+
+            <!--  IMPLICIT STYLES  -->
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

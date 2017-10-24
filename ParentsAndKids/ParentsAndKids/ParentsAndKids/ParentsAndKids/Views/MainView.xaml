@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="ParentsAndKids.Views.MainView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:extensions="clr-namespace:ParentsAndKids.Extensions"
+    xmlns:viewModelBase="clr-namespace:ParentsAndKids.ViewModels.Base"
+    xmlns:views="clr-namespace:ParentsAndKids.Views"
+    viewModelBase:ViewModelLocator.AutoWireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--  TOP VIEW  -->
+    <views:TopView x:Name="TopView">
+        <views:TopView.Icon>
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="logo"
+                iOS="logo" />
+        </views:TopView.Icon>
+    </views:TopView>
+    <!--  EXPLORE VIEW  -->
+    <views:ExploreView x:Name="ExploreView">
+        <views:ExploreView.Icon>
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="search"
+                iOS="search" />
+        </views:ExploreView.Icon>
+    </views:ExploreView>
+    <!--  INBOX VIEW  -->
+    <views:InboxView x:Name="InboxView">
+        <views:InboxView.Icon>
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="email"
+                iOS="email" />
+        </views:InboxView.Icon>
+    </views:InboxView>
+    <!--  PROFILE VIEW  -->
+    <views:ProfileView x:Name="ProfileView">
+        <views:ProfileView.Icon>
+            <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="agent"
+                iOS="agent" />
+        </views:ProfileView.Icon>
+    </views:ProfileView>
+</TabbedPage>
